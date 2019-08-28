@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct ficha_de_cliente
+{
+    char nome[61];
+    char cidade[31];
+    char email[61];
+    int telefone;
+    int idade;
+}cadastro;
+
+int main()
+{
+      char nome[61];
+      char cidade[21];
+      char email[61];
+      int nascimento, telefone;
+      FILE *pont_arq;
+      if(pont_arq == NULL)
+  {
+      printf("Erro na abertura do arquivo!");
+      return 1;
+  }    
+      pont_arq = fopen("registros.txt", "w");
+      fprintf(pont_arq,"-----------------CADASTRO-----------------\n");
+      printf("\n--------------- CADASTRO DE CLIENTE -----------------\n\n\n");
+      printf("Digite seu nome completo......: ");
+      fflush(stdin);
+      fgets(cadastro.nome, 61, stdin);
+      fprintf(pont_arq, "Nome: %s", cadastro.nome);
+
+      printf("Cidade ......: ");
+      fflush(stdin);
+      fgets(cadastro.cidade, 31, stdin);
+      fprintf(pont_arq, "Cidade: %s", cadastro.cidade);
+
+      printf("Informe seu email ..: "); 
+      fflush(stdin);
+      fgets(cadastro.email, 61, stdin);
+      fprintf(pont_arq, "Email: %s", cadastro.email);  
+
+      printf("Informe seu numero ..: ");
+      fflush(stdin);
+      scanf("%d", &cadastro.telefone);
+      fprintf(pont_arq, "Telefone: %d\n", cadastro.telefone);
+
+      printf("Informe sua idade ..: ");
+      fflush(stdin);
+      scanf("%d", &cadastro.idade);
+      fprintf(pont_arq, "Idade: %d\n", cadastro.idade);    
+      fprintf(pont_arq,"---------------------------------------------\n");
+      //fflush(stdin);
+      //fwrite(&cadastro,sizeof(struct ficha_de_cliente),1, pont_arq);      
+      //fprintf(pont_arq,"---------------------------------------------\n");
+      printf("--------------- DADOS ARMAZENADOS COM SUCESSO ---------------");
+
+      fclose(pont_arq);
+      return 0;
+}
+
+
+
+
